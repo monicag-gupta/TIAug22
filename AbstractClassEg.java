@@ -1,4 +1,4 @@
-abstract class OS{
+abstract class OS{ //33% abstraction
 	public abstract void cmdLine(); 
 	public void dir(){
 		System.out.println("Dir/folder System");
