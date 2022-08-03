@@ -16,6 +16,11 @@ class ChildPa2 extends Parent{
 		System.out.println("I am fn() in ChildPa2");
 	}
 }
+class ChildPa3 extends Parent{ //static polymorphism in inheritance
+	public void fn(int x){
+		System.out.println("I am fn(int x) in ChildPa3");
+	}
+}
 public class PolyEgRT {
 	public void fnn(Parent p){ //until runtime fnn does not know if p is of Parent, childPa1 or Childpa2
 		p.fn();
@@ -32,6 +37,9 @@ public class PolyEgRT {
 			pobj.fnn(new ChildPa2());
 		else
 			pobj.fnn(new Parent());
+		ChildPa3 child=new ChildPa3();
+		child.fn();
+		child.fn(3);
 			
 
 	}
