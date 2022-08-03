@@ -1,0 +1,38 @@
+class Printer{
+	public void print(){ //fn1
+		System.out.println(" Fn1: Prints Hello World!");
+	}
+	public void print(int x){ //fn2 with fn1 Type 1 Polymorphism: no of parameters are different
+		for(int i=0;i<x;i++)
+			System.out.print(" Fn2: Prints Hello World! " + i + " times");
+		System.out.println();
+	}
+	public void print(String x){ //fn3 with fn2 Type 2 Polymorphism: parameter data type is different
+		System.out.print(" Fn3: Prints Hello World! " + x + " having length as: " + x.length());
+		System.out.println();
+	}
+	public void print(int x, double y){ //fn4 with fn1, fn2, fn3 Type 1 Polymorphism: no of parameters are different
+		System.out.print(" Fn4: Prints Hello World! (int, double)" + (x*y) + " times");
+		System.out.println();
+	}
+	public void print(double x, int y){ //fn5 with fn4 Type 3 Polymorphism: series of parameters are different
+		System.out.print(" Fn5: Prints Hello World! (double, int)" + (x*y) + " times");
+		System.out.println();
+	}
+	
+	
+}
+public class PolyEg {
+
+	public static void main(String[] args) {
+		Printer p=new Printer();
+		p.print();
+		p.print(3);
+		p.print("Named Parameter");
+		p.print(2.5, 8);
+		p.print(2, 8.7);
+		
+
+	}
+
+}
