@@ -31,10 +31,10 @@ public class InterafceEg {
 		ma.Lamborghini();
 		GF gf=new A();
 		gf.mercedes();
-		A Ashutosh = new A();
-		Ashutosh.mercedes();
-		Ashutosh.Lamborghini();
-		Ashutosh.BMW();
+		A obja = new A();
+		obja.mercedes();
+		obja.Lamborghini();
+		obja.BMW();
 	}
 
 }
