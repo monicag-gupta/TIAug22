@@ -1,0 +1,39 @@
+//Runtime Polymorphism / Dynamic Polymorphism
+import java.util.Scanner;
+
+class Parent{
+	public void fn(){
+		System.out.println("I am fn() in Parent");
+	}
+}
+class ChildPa1 extends Parent{
+	public void fn(){
+		System.out.println("I am fn() in ChildPa1");
+	}
+}
+class ChildPa2 extends Parent{
+	public void fn(){
+		System.out.println("I am fn() in ChildPa2");
+	}
+}
+public class PolyEgRT {
+	public void fnn(Parent p){ //until runtime fnn does not know if p is of Parent, childPa1 or Childpa2
+		p.fn();
+	}
+
+	public static void main(String[] args) {
+		PolyEgRT pobj=new PolyEgRT();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter choice from (1. ChildPa1, 2. ChildPa2) : ");
+		int ch=sc.nextInt();
+		if(ch==1)
+			pobj.fnn(new ChildPa1());
+		else if(ch==2)
+			pobj.fnn(new ChildPa2());
+		else
+			pobj.fnn(new Parent());
+			
+
+	}
+
+}
