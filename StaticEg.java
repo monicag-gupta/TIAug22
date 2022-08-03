@@ -40,9 +40,10 @@ public class StaticEg {
 	}
 	public static void main(String[] args) {
 		System.out.println("Main() block");
-//		Abc a1=new Abc();
-//		Abc a2=new Abc();
-		Abc.x=10;
+		Abc a1=new Abc();
+		Abc a2=new Abc();
+		a1.x=10;
+		System.out.println(a2.x);
 		System.out.println(Abc.x);
 		Abc.fn();
 		Abc oa=new Abc();
