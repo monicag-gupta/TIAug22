@@ -1,0 +1,32 @@
+class People{
+	int Adhaar;
+	String name;
+	public People(){
+		this("Indian");
+	}
+	private People(int Adhaar){
+		this.Adhaar=Adhaar;
+	}
+	private People(String name){
+		this.name=name;
+	}
+	public People(int Adhaar, String name){
+		
+		this(Adhaar);
+		this.name=name;
+		
+	}
+	public String toString() {
+		return "People [Adhaar=" + Adhaar + ", name=" + name + "]";
+	}
+	
+}
+public class ConstructorEg {
+
+	public static void main(String[] args) {
+		People p=new People();
+		System.out.println(p);
+		p=new People(1234,"Abc");
+		System.out.println(p);
+	}
+}
