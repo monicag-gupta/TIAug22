@@ -1,0 +1,28 @@
+The Java Collections Framework consists of:
+
+Collection interfaces : 
+  Collection, List, Set, Map, etc.
+  
+General-purpose implementations : 
+  ArrayList, LinkedList, HashSet, HashMap, etc.
+  
+Special-purpose implementations : 
+  designed for performance characteristics, usage restrictions, or behavior: Stack, Queue, etc
+  
+Concurrent implementations: 
+  designed for use in high-concurrency contexts: BlockingQueue, ConcurrentMap
+  
+Wrapper implementations: 
+  adding synchronization, immutability, etc.
+  
+Abstract implementations: 
+  building blocks for custom implementations
+  
+Algorithms : 
+  static methods that perform useful functions, such as sorting or randomizing a collection
+  
+Infrastructure: 
+  interfaces to support the collections
+  
+Array utilities : 
+  static methods that perform useful functions on arrays, such as sorting, initializing, or converting to collections
