@@ -1,0 +1,59 @@
+package pkg1;
+
+public class HelloWorld {
+	public void PublicClassPublicHello(){
+		System.out.println("PublicClassPublicHello");
+	}
+	void PublicClassDefaultHello(){
+		System.out.println("PublicClassDefaultHello");
+	}
+	private void PublicClassPrivateHello(){
+		System.out.println("PublicClassPrivateHello");
+	}
+	protected void PublicClassProtectedeHello(){
+		System.out.println("PublicClassProtectedHello");
+	}
+	
+}
+
+
+
+
+package pkg1;
+
+public class Main {
+
+	public static void main(String[] args) {
+		HelloWorld h=new HelloWorld();
+		h.PublicClassDefaultHello();
+		h.PublicClassPublicHello();
+		h.PublicClassProtectedeHello();
+
+	}
+
+}
+
+
+
+
+
+package pkg2;
+import pkg1.*;
+class HelloChild extends HelloWorld{
+	void protectedMember(){
+		PublicClassProtectedeHello();
+	}
+}
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		HelloChild h=new HelloChild();
+		h.PublicClassPublicHello();
+		h.protectedMember();
+		
+
+	}
+
+}
+
