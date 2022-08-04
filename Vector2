@@ -36,3 +36,51 @@ public class VectorEg2 {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+package pkgList;
+import java.util.*;
+class Emp{
+	String name;
+	int empID;
+
+	public String toString() {
+		return "Emp [name=" + name + ", empID=" + empID + "]\n";
+	}
+
+	public Emp(Vector<Emp> v, String name, int empID) {
+		this.name = name;
+		this.empID = empID;
+		//v.add(this);
+		System.out.println("The List now is: \n" + v);
+	}
+
+	public Emp(String name, int empID) {
+		super();
+		this.name = name;
+		this.empID = empID;
+	}
+	public Emp(){}
+	
+}
+
+public class VectorEg2 {
+
+	public static void main(String[] args) {
+		Vector<Emp> emps=new Vector<>();
+		emps.add(new Emp(emps, "Ashutosh",101));
+		emps.add(new Emp(emps, "Ashish",102));
+		System.out.println("From main: \n" + emps);
+
+	}
+
+}
+
