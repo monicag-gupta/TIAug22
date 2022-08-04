@@ -1,0 +1,27 @@
+package pkgList;
+import java.util.Vector;
+
+public class VectorClass {
+    public static void main(String a[]){
+        Vector<String> vct = new Vector<String>(5);
+        vct.add("First");
+        vct.add("Second");
+        vct.add("Third");
+        vct.add("Second");
+        vct.add("Fifth");
+        System.out.println(vct);
+        System.out.println("Size Of Vector "+vct.size());
+        System.out.println("Max Size Of Vector "+vct.capacity());
+        vct.add(2,"Random"); //adding element at specified index
+        System.out.println(vct);
+        System.out.println("Size Of Vector "+vct.size());
+        System.out.println("Max Size Of Vector "+vct.capacity());
+        System.out.println("Element at index 3 is: "+vct.get(3)); //getting ele by index
+        System.out.println("The first element of this vector is: "+vct.firstElement());
+        System.out.println("The last element of this vector is: "+vct.lastElement());
+        System.out.println("Is this vector empty? "+vct.isEmpty());
+        vct.add("Sixth");
+        System.out.println("Size Of Vector "+vct.size());
+        System.out.println("Max Size Of Vector "+vct.capacity());
+    }
+}
