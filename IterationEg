@@ -1,0 +1,45 @@
+package pkgList;
+import java.util.*;
+
+
+public class IterationEg {
+
+	public static void main(String[] args) {
+		List<String> alist= Arrays.asList("First","Second", "Third","Fourth","Fifth");
+		for(String ele : alist){
+			System.out.print(ele + ", ");
+		}
+		System.out.println();
+		for(int i=0; i < alist.size();i++){
+			System.out.print(alist.get(i) + ", ");
+		}
+		System.out.println();
+		//Iterator for any collection
+		Iterator<String> it=alist.iterator();
+		while(it.hasNext())
+			System.out.print(it.next() + ", ");
+		System.out.println();
+		ListIterator<String> lit = alist.listIterator();
+		while(lit.hasNext()){
+			System.out.print(lit.next() + ", ");
+		}
+		//once we reach the end of list, we can iterate backward too with ListIterator
+		System.out.println("\nBackwards iteration:");
+		while(lit.hasPrevious()){
+			System.out.print(lit.previous() + ", ");
+		}
+		//now again lit is at the beginning if the list.
+		//we can edit elements of the list  through the listiterators  also.
+		int i=1;
+		while(lit.hasNext()){
+			lit.set((i++) + lit.next());
+		}
+		System.out.println();
+		it=alist.iterator();
+		
+		while(it.hasNext())
+			System.out.print(it.next() + ", ");
+
+	}
+
+}
