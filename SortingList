@@ -1,0 +1,20 @@
+package pkgList;
+import java.util.*;
+public class SortingEg {
+
+	public static void main(String[] args) {
+		ArrayList<String> alist=new ArrayList<String>();  
+	      alist.add("Abra");		  
+	      alist.add("Steve");
+	      alist.add("Tim");
+	      alist.add("Lucy");
+	      alist.add("Pat");
+	      alist.add("Abrakadra");
+	      alist.add("Tom");
+	       //displaying elements
+	      System.out.println("The Original list: \n" + alist);
+	      Collections.sort(alist);
+	      System.out.println("The Sorted list: \n" + alist);
+	}
+
+}
