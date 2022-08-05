@@ -1,4 +1,13 @@
 /**
+* @author TI2
+* @since JDK 1.7
+*/
+class Parent{
+    public void fn(int x, int y){
+	System.out.println("Hi from fn of Parent!");
+    }
+}
+/**
 * <h1>Hello, World!</h1>
 * The HelloWorld program implements an application that
 * simply displays "Hello World!" to the standard output.
@@ -11,7 +20,7 @@
 * @version 1.0
 * @since   2022-08-05 
 */
-public class HelloWorld {
+public class HelloWorld extends Parent{
     public static void main(String[] args) {
         /** Prints Hello, World! on standard output.*/
         System.out.println("Hello World!");
