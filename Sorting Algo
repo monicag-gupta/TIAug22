@@ -1,0 +1,37 @@
+package pkgList;
+import java.util.*;
+class Empl implements Comparable<Empl>{
+	public int empId;
+	public String empName;
+	public int empSal;
+	public int compareTo(Empl e){
+		//return this.empId - e.empId;
+		return this.empName.compareTo(e.empName);
+	}
+	public Empl(){}
+	public Empl(int empId, String empName, int empSal) {
+		this.empId = empId;
+		this.empName = empName;
+		this.empSal = empSal;
+	}
+	public String toString() {
+		return "\nEmp [empId=" + empId + ", empName=" + empName + ", empSal="
+				+ empSal + "]";
+	}	
+}
+
+public class SortingEmpEg {
+
+	public static void main(String[] args) {
+		ArrayList<Empl> emps=new ArrayList<>();
+		emps.add(new Empl(101,"Chetan", 1000000));
+		emps.add(new Empl(110,"Neha", 1000001));
+		emps.add(new Empl(109,"Om", 1000009));
+		emps.add(new Empl(108,"Shiddhant", 1000005));
+		emps.add(new Empl(102,"Aditya", 1000005));
+		System.out.println("Original List: " + emps);
+		Collections.sort(emps);
+		System.out.println("Sorted List: " + emps);
+	}
+
+}
