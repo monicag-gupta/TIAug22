@@ -5,15 +5,15 @@
 * <p>
 * Giving proper comments in your program makes it more
 * user friendly and it is assumed as a high quality code.
-* 
+* </p>
 *
-* @author  <your Name>
+* @author  TI
 * @version 1.0
-* @since   2018-09-08 
+* @since   2022-08-05 
 */
 public class HelloWorld {
     public static void main(String[] args) {
-        /* Prints Hello, World! on standard output.*/
+        /** Prints Hello, World! on standard output.*/
         System.out.println("Hello World!");
     }
 }
