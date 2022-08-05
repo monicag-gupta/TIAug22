@@ -19,7 +19,11 @@ class Empl implements Comparable<Empl>{
 				+ empSal + "]";
 	}	
 }
-
+class A implements Comparator<Empl>{
+	public int compare(Empl e1,Empl e2){
+		return e1.empId - e2.empId;
+	}
+}
 public class SortingEmpEg {
 
 	public static void main(String[] args) {
@@ -31,7 +35,9 @@ public class SortingEmpEg {
 		emps.add(new Empl(102,"Aditya", 1000005));
 		System.out.println("Original List: " + emps);
 		Collections.sort(emps);
-		System.out.println("Sorted List: " + emps);
+		System.out.println("Sorted List(name): " + emps);
+		Collections.sort(emps, new A());
+		System.out.println("Sorted List(EmpId): " + emps);
 	}
 
 }
