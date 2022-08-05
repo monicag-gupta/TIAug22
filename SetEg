@@ -10,7 +10,13 @@ public class SetEg {
 		for (int i = 0; i < 5; i++) {
 			set.add(count[i]);
 		}
-		System.out.println(set);
+		System.out.println("Hash Set: " + set);
+		Set<Integer> Lset = new LinkedHashSet<Integer>();
+
+		for (int i = 0; i < 5; i++) {
+			Lset.add(count[i]);
+		}
+		System.out.println("Linked Hash Set: " + set);
 		TreeSet sortedSet = new TreeSet<Integer>(set);
 		System.out.println("The sorted list is:");
 		System.out.println(sortedSet);
