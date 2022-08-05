@@ -2,11 +2,16 @@
 * @author TI2
 * @since JDK 1.7
 */
-class Parent{
+public class Parent{
     public void fn(int x, int y){
 	System.out.println("Hi from fn of Parent!");
     }
 }
+
+
+
+
+
 /**
 * <h1>Hello, World!</h1>
 * The HelloWorld program implements an application that
