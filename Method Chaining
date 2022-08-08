@@ -1,0 +1,42 @@
+package methodChaining;
+class A{
+	B fnA(){
+		System.out.println("I am in A as fnA");
+		return new B();
+	}
+}
+class B{
+	C fnB(){
+		System.out.println("I am in B as fnB");
+		return new C();
+	}
+}
+class C{
+	D fnC(){
+		System.out.println("I am in C as fnC");
+		return new D();
+	}
+}
+class D{
+	void fnD(){
+		System.out.println("I am in D as fnD");
+	}
+}
+
+public class MethodChainEg {
+
+	public static void main(String[] args) {
+		A a=new A();
+		B b=a.fnA();
+		C c=b.fnB();
+		D d=c.fnC();
+		d.fnD();
+		
+		System.out.println("\n\nThe shortcut to calling many object and their functions"
+				+ " we use function chaining  : ");
+		
+		new A().fnA().fnB().fnC().fnD();
+
+	}
+
+}
