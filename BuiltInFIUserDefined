@@ -1,0 +1,46 @@
+package builtInFI;
+
+interface MyPredicate<T>{
+	Boolean test(T a);
+}
+interface MyConsumer<T>{
+	void accept(T a);
+}
+interface MySupplier<T>{
+	T get();
+}
+interface MyFunction<T, R>{
+	R apply(T a);
+}
+
+
+public class BuiltInFIEg {
+
+	public static void main(String[] args) {
+		MyPredicate<Integer> p1=(x) -> x > 7;
+		System.out.println(" p1.test(12) :: x > 7 Result is : " + p1.test(12));
+		MyPredicate<String> p2=(x) -> x.length() >= 8;
+		System.out.println(" p2.test(Hello) :: length >= 8 Result is : " + p2.test("Hello"));
+		
+		MyConsumer<Integer> c1= (x) -> System.out.println("Integer Consumer accepting "+ x );
+		c1.accept(100);
+		MyConsumer<String> c2= (x) -> System.out.println("String Consumer accepting "+ x 
+				+ " with length : " + x.length());
+		c2.accept("HelloWorld");
+		
+		
+		MySupplier<Integer> s1=() -> 100;
+		System.out.println("Integer Supplier supplying 100 : " + s1.get());
+		MySupplier<String> s2=() -> "HelloSupplied value";
+		System.out.println("String Supplier supplying  : " + s2.get());
+		
+		
+		MyFunction<String, Integer> f1=String::length;
+		System.out.println("Function string.length being applied: " + f1.apply("Hello World"));
+		MyFunction<String, String> f2=String::toUpperCase;
+		System.out.println("Function string.toUpperCase being applied: " + f2.apply("Hello World"));
+
+
+	}
+
+}
