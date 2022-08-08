@@ -2,9 +2,11 @@ package methodRef;
 import java.util.*;
 class B{
 	static int add(int x, int y){
+		
 		return x+y;
 	}
 	int sub(int x, int y){
+		
 		return x>y?x-y:y-x;
 	}
 }
@@ -12,30 +14,30 @@ interface FIMathOp{
 	int operation(int x, int y);
 }
 public class UsingLambdaMetRef {
-	static void fn(FIMathOp fi){
+	static void fn(FIMathOp fi, String O){
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter x: ");
 		int x=sc.nextInt();
 		//sc.nextLine();
 		System.out.println("Enter y: ");
 		int y=sc.nextInt();
-		System.out.println("The result : " +fi.operation(x, y));
+		System.out.println("The result of " + O + ": " +fi.operation(x, y));
 	}
 
 	public static void main(String[] args) {
 		//using object of FIMatOp in fn
 		FIMathOp fi= (x,y) -> x*y;
-		fn(fi);
+		fn(fi, " Multiplication ");
 		
 		//use lambda directly as fn parameter 
-		fn((x, y) -> y == 0 ? 0 : x/y);
+		fn((x, y) -> y == 0 ? 0 : x/y, " Division ");
 		
 		//using Method Reference
 		FIMathOp fi2= new B()::sub;
-		fn(fi2);
+		fn(fi2, " Subtraction ");
 		
 		//using Method Reference directly as fn parameter
-		fn(B::add);
+		fn(B::add, " Addition ");
 			
 
 	}
