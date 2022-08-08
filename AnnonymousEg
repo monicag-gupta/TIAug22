@@ -1,3 +1,53 @@
+interface MathOp {
+	int operation(int x, int y);
+}
+
+public class MathOpEg {
+
+	public static void main(String[] args) {
+
+		MathOp add = new MathOp() {
+			public int operation(int x, int y) {
+				return x + y;
+			}
+		};
+		MathOp sub = new MathOp() {
+			public int operation(int x, int y) {
+				return x - y;
+			}
+		};
+		MathOp mul = new MathOp() {
+			public int operation(int x, int y) {
+				return x * y;
+			}
+		};
+		MathOp div = new MathOp() {
+			public int operation(int x, int y) {
+				//return x/y;
+				return y==0? 0 : x / y;
+			}
+		};
+		System.out.println(add.operation(10, 2));
+		System.out.println(sub.operation(10, 2));
+		System.out.println(mul.operation(10, 2));
+		System.out.println(div.operation(10, 2));
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 interface B{ //B.class
 	void fn();
 }
