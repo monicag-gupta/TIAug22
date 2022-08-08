@@ -1,0 +1,55 @@
+package methodRef;
+class A{
+	void fn1(){
+		System.out.println("No Param, no return value, Instance Function objA::fn1");
+	}
+	static void fn2(){
+		System.out.println("No Param, no return value, Class Function A::fn2");
+	}
+	//Arbitrary class object System.out has function println with No Param, no return value
+	A(){
+		System.out.println("No Param, no return value, Constructor of A::new");
+	}
+}
+interface FI{
+	void sam();
+}
+interface FI2{
+	int sam(String s);
+}
+
+public class MethodRefType {
+
+	public static void main(String[] args) {
+		//instance method reference
+		FI fi1 =  new A() :: fn1;
+		fi1.sam();
+		
+		//static  method reference
+		FI fi2 =  A :: fn2;
+		fi2.sam();
+		
+		//Arbitrary object method reference
+		FI fi3 =  System.out :: println;
+		fi3.sam();
+		
+		//Constructor reference
+		FI fi4 =  A :: new;
+		fi4.sam();
+		
+		
+//		String s="Hello";
+//		int lens=s.length();
+		
+		
+		//Arbitrary object method reference : Note no object creation required
+		FI2 fi5 =  String :: length;
+		System.out.println("Length of Hello is" + fi5.sam("Hello"));
+		
+		
+
+		
+
+	}
+
+}
