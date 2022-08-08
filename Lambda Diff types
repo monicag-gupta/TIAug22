@@ -1,0 +1,73 @@
+//Functional Interface: The Interface with a Single Abstract Method (SAM)
+//Such interfaces are based on the SAM function 
+interface FI2{
+	int fn();
+}
+interface FI3{
+	int fn(int x, int y);
+}
+interface FI4{
+	int fn(int x);
+}
+interface FI5{
+	void fn();
+}
+
+public class LambdaEg2 {
+
+	public static void main(String[] args) {
+		//Lambda for FI2:
+		FI2 fi1 = () -> 100; //all statements are interpreted by Javac
+		System.out.println(fi1.fn()); //100
+		
+		//all statements are interpreted by Javac; return value in mentioned
+		//If return keyword in there in the lambda, then put it inside { };
+		//If no parameters are there, then start the lambda with an empty ()
+		FI2 fi2 = () -> {return 200;}; 
+		System.out.println(fi2.fn()); //200
+		
+		//all statements are interpreted by Javac; 
+		//If multiple parameters are used in SAM, then put it under () separated by ,
+		FI3 fi3 = (int x, int y) -> {return x + y;}; 
+		System.out.println(fi3.fn(3,4)); //7
+		
+		//all statements are interpreted by Javac; 
+		//If multiple parameters are used in SAM, then put it under () separated by ,
+		//return value is interpreted without need of return keyword
+		FI3 fi4 = (int x, int y) ->  x + y; 
+		System.out.println(fi4.fn(5,4)); //9
+		
+		//all statements are interpreted by Javac; 
+		//If multiple parameters are used in SAM, then put it under () separated by ,
+		//return value is interpreted without need of return keyword
+		//Parameter data type is also interpreted, not required in Lambda
+		FI3 fi5 = (x, y) ->  x + y; 
+		System.out.println(fi5.fn(5,9)); //14
+		
+		//all statements are interpreted by Javac; 
+		//return value is interpreted without need of return keyword
+		//Parameter data type is also interpreted, not required in Lambda
+		//For a single parameter, the () is also not required
+		//FI4 fi6 = (x) ->  x + x; 
+		FI4 fi6 = x ->  x + x; 
+		System.out.println(fi6.fn(5)); //10
+		
+		//all statements are interpreted by Javac; 
+		//For no parameter, the () is  required
+		//For multiple statements, we need to put multiple statements inside { };
+		FI5 fi7 = () ->  { 
+			System.out.println("Hello Line 1");
+			System.out.println("Hello Line 2");
+		}; 
+		fi7.fn();
+		
+		//all statements are interpreted by Javac; 
+		//For no parameter, the () is  required
+		//For single statements, we do not need {};
+		FI5 fi8 = () ->  System.out.println("Hello World");
+		fi8.fn();
+		
+	
+	}
+
+}
