@@ -1,0 +1,112 @@
+class E{
+	public void fn(){
+		System.out.println("This is no param no return Fn in E");
+	}
+}
+interface FI8{
+	void afn();
+}
+class F{
+	public void fn(int x){
+		System.out.println("This is " + x + " param no return Fn in F");
+	}
+}
+interface FI9{
+	void afn(int y);
+}
+
+class G{
+	public int fn(){
+		System.out.println("This is no param int return Fn in G");
+		return 100;
+	}
+}
+interface FI10{
+	int afn();
+}
+
+class H{
+	public int fn(int x){
+		System.out.println("This is " +x+"  param int return Fn in H");
+		return 100;
+	}
+}
+interface FI11{
+	int afn(int x);
+}
+
+class K{
+	public int fn(){
+		System.out.println("This is no  param int return Fn in K");
+		return 100;
+	}
+}
+interface FI12{
+	int afn();
+}
+
+public class MethodRefEg {
+
+	public static void main(String[] args) {
+		E e=new E();
+		
+		//lambda 
+		FI8 fi1=() -> e.fn();
+		fi1.afn();
+		
+		//Anonymous Class 
+		FI8 fi2=new FI8(){ 
+			public void afn(){
+				E e=new E();
+				e.fn();
+			}
+		};
+		fi2.afn();
+		
+		//Method Reference
+		FI8 fi3 = e :: fn;
+		fi3.afn();
+		
+		
+		
+		//lambda 
+		FI9 fi4=(x) -> new F().fn(x);
+		fi4.afn(12);
+		
+		//Method Reference
+		FI9 fi5 = new F() :: fn;
+		fi5.afn(15);
+		
+		//lambda 
+		FI10 fi6=() -> {return new G().fn(); };
+		int ret=fi6.afn();
+		System.out.println(ret);
+		
+		//Method Reference
+		FI10 fi7 = new G() :: fn;
+		System.out.println(fi7.afn());
+		
+		//lambda 
+		FI11 fi8=(x) -> {return new H().fn(x); };
+		ret=fi8.afn(90);
+		System.out.println(ret);
+		
+		//Method Reference
+		FI11 fi9 = new H() :: fn;
+		System.out.println(fi9.afn(12));
+		
+		//lambda 
+		FI12 fi10=() -> {return new K().fn(); };
+		ret=fi10.afn();
+		System.out.println(ret);
+		
+		//Method Reference
+		FI12 fi11 = new K() :: fn;
+		System.out.println(fi11.afn());
+
+		
+
+
+	}
+
+}
