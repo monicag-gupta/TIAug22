@@ -22,6 +22,7 @@ class Immut{
 	public Mut getM() {
 		Mut m=new Mut();
 		m.setX(this.m.getX());
+		System.out.println("\nSending Obj of m from getM: " + m.hashCode());
 		return m;
 	}
 	public Immut(int i, Mut m) {
@@ -29,10 +30,11 @@ class Immut{
 		//this.m=m;
 		this.m=new Mut();
 		this.m.setX(m.getX());
+		System.out.println("\nWe got " + m.hashCode() + " cloning the value to " + this.m.hashCode());
 	}
 	@Override
 	public String toString() {
-		return "Immut [i=" + i + ", m.x=" + m.getX() + "]";
+		return "Immut [i=" + i + ", m.x=" + m.getX() + "]\n hashcode of m:  " + m.hashCode();
 	}
 }
 
@@ -42,6 +44,8 @@ public class ImmutableClassEg {
 		Mut m=new Mut();
 		m.setX(20);
 		Immut objI=new Immut(10,m);
+		System.out.println("\nMutable obj : " + m.hashCode());
+		
 		System.out.println("Original Immutable Obj: "+ objI);
 		m.setX(30);
 		System.out.println("Mut has changed to: m.x: " + m.getX() 
