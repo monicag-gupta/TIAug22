@@ -18,7 +18,11 @@ public class StreamAPIEg {
 		
 		System.out.println(s);
 		
-		int cnt=(int)l.stream().count();
+		//int cnt=(int)l.stream().count();
+		
+		long cnt=l.stream().count();
+		
+		
 		System.out.println(cnt+ " Elements  are there in the above list ");
 		
 		//.forEach(System.out::println);
