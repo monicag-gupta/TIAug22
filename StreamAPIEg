@@ -6,14 +6,21 @@ import java.util.stream.Collectors;
 public class StreamAPIEg {
 
 	public static void main(String[] args) {
-		List<String> l=Arrays.asList("Hello","", "World.", "", "!!","Hello" , "Java", "", "World!");
+//		List<String> l=Arrays.asList("Hello","", "World.", "", "!!","Hello" , "Java", "", "World!");
 		
-		String s = l.stream()
-			.filter(x-> x.length()==5)
-			.findAny()
-			.orElse("");
+		List<String> l=Arrays.asList("Hello","Extra", "World.", "Zebra", "!!","Hello" , "Java", "Coders", "World!");
 		
-		System.out.println(s);
+		l.stream()
+			.sorted()
+			.forEach(x->System.out.print(x + "  "));
+		
+		
+//		String s = l.stream()
+//			.filter(x-> x.length()==5)
+//			.findFirst()
+//			.orElse("");
+//		
+//		System.out.println(s);
 		
 //		System.out.println(l.stream()
 //			//.limit(5)
