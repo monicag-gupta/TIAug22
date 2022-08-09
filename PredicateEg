@@ -1,0 +1,23 @@
+package builtInFI;
+import java.util.function.*;
+import java.util.*;
+
+public class PredicateEg {
+
+	public static void main(String[] args) {
+		Predicate<Integer> gr0=(x) -> x >= 0;
+		Predicate<Integer> lt100 = (x) -> x <= 100;
+		Predicate<Integer> marksChk = gr0.and(lt100);
+		Scanner sc = new Scanner(System.in);
+		while(true){
+		System.out.println("Enter marks: (0-100): (-1 to exit)");
+		int marks=sc.nextInt();
+		if(marks == -1)
+			break;
+		System.out.println(marksChk.test(marks) ? "\nValid marks" : "\nInvalid Marks");
+		}
+		
+ 
+	}
+
+}
