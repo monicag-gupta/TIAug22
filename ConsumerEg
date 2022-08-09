@@ -1,0 +1,45 @@
+package builtInFI;
+
+import java.util.function.*;
+import java.util.*;
+
+class Chk {
+	static void chkOdd(int x) {
+		if (x % 2 == 0) {
+			System.out.println("\n" + x + " is Even\n");
+		} else
+			System.out.println("\n" + x + " is Odd\n");
+	}
+
+	static void chkPrime(int x) {
+		int i = 2;
+		for (; i < x; i++) {
+			if (x % i == 0) {
+				System.out.println("\n" + x + " is Not Prime\n");
+
+				break;
+			}
+		}
+		if (x == i)
+			System.out.println("\n" + x + " is Prime\n");
+	}
+
+}
+
+public class ConsumerEg {
+
+	public static void main(String[] args) {
+		Consumer<Integer> c1 = Chk::chkOdd;
+		Consumer<Integer> chk = c1.andThen(Chk::chkPrime);
+		Scanner sc = new Scanner(System.in);
+		while (true) {
+			System.out.println("Enter a number: (-1 to exit)");
+			int num = sc.nextInt();
+			if (num == -1)
+				break;
+			chk.accept(num);
+		}
+
+	}
+
+}
