@@ -8,24 +8,30 @@ public class StreamAPIEg {
 	public static void main(String[] args) {
 		List<String> l=Arrays.asList("Hello"," ", "World", " ", "!!","Hello" , "Java", "World");
 		
-		List<String> s = l.stream()
-		.distinct()
-		.peek(x->System.out.print(" Peeking: "+ x+ " : "))
-		.filter(x->!x.equalsIgnoreCase("Hello"))
-		.map((x)->x.toUpperCase())
-		//.collect(Collectors.joining(", "));
-		.collect(Collectors.toList());
-		
-		System.out.println(s);
-		
-		//int cnt=(int)l.stream().count();
-		
-		long cnt=l.stream().count();
+		l.stream()
+			.limit(5)
+			.forEach(System.out::print);
 		
 		
-		System.out.println(cnt+ " Elements  are there in the above list ");
 		
-		//.forEach(System.out::println);
+//		List<String> s = l.stream()
+//		.distinct()
+//		.peek(x->System.out.print(" Peeking: "+ x+ " : "))
+//		.filter(x->!x.equalsIgnoreCase("Hello"))
+//		.map((x)->x.toUpperCase())
+//		//.collect(Collectors.joining(", "));
+//		.collect(Collectors.toList());
+//		
+//		System.out.println(s);
+		
+//		//int cnt=(int)l.stream().count();
+//		
+//		long cnt=l.stream().count();
+//		
+//		
+//		System.out.println(cnt+ " Elements  are there in the above list ");
+//		
+//		//.forEach(System.out::println);
 
 	}
 
