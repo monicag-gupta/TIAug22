@@ -1,9 +1,13 @@
+package streamApiPkg;
+
 import java.util.DoubleSummaryStatistics;
 import java.util.IntSummaryStatistics;
 import java.util.LongSummaryStatistics;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
+
+
 public class SimpleStat {
 	public static void main(String[] args) {
 		System.out.println("---DoubleSummaryStatistics---");		
@@ -31,6 +35,7 @@ public class SimpleStat {
 		System.out.println("Average:"+istats.getAverage());		
 	}
 }
+
 
 
 
