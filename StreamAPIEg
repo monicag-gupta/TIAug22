@@ -3,14 +3,14 @@ package streamApiPkg;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class StreamAPIEg {
+public class StreamAPIdistinctMap {
 
 	public static void main(String[] args) {
 		List<String> l=Arrays.asList("Hello"," ", "World", " ", "!!","Hello" , "Java", "World");
 		
 		List<String> s = l.stream()
 		.distinct()
-		//.peek(x->System.out.print(" Peeking: "+ x+ " : "))
+		.peek(x->System.out.print(" Peeking: "+ x+ " : "))
 		.map((x)->x.toUpperCase())
 		//.collect(Collectors.joining(", "));
 		.collect(Collectors.toList());
