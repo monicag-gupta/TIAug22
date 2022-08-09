@@ -1,0 +1,54 @@
+package builtInFI;
+
+import java.util.function.*;
+import java.util.*;
+
+class Check {
+	static Integer chkOdd(int x) {
+		if (x % 2 == 0) {
+			System.out.println (x + " is Even");
+		} else
+			System.out.println (x + " is Odd");
+		return x;
+	}
+
+	static Integer chkPrime(int x) {
+		int i = 2;
+		for (; i < x; i++) {
+			if (x % i == 0) {
+				System.out.println (x + " is Not Prime");
+				break;
+			}
+		}
+		if (x == i)
+			System.out.println (x + " is Prime");
+//		return "\nUnknown number\n";
+		return x;
+	}
+
+}
+
+
+public class FunctionEg {
+
+	public static void main(String[] args) {
+		Function<Integer, Integer> f1 = Check::chkOdd;
+		Function<Integer, Integer> f2 = Check::chkPrime;
+		Function<Integer, Integer> ChkOddfirst = f1.andThen(f2);
+		Function<Integer, Integer> ChkPrimefirst = f1.compose(f2);
+		Scanner sc = new Scanner(System.in);
+		while (true) {
+			System.out.println("Enter a number: (-1 to exit)");
+			int num = sc.nextInt();
+			if (num == -1)
+				break;
+			int x=ChkOddfirst.apply(num);
+			x=ChkPrimefirst.apply(num);
+		}
+
+		
+		
+
+	}
+
+}
