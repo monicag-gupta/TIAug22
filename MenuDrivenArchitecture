@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class MenuDrivenArchitecture {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); // dependent on input from user
+		int ch; // declare variables outside the menu
+		while (true) { // infinite loop with exit plan
+			System.out
+					.println("\nMenu\n1. Java \n2. JEE \n3. Hibernate\n4. Exit");
+			System.out.println("Enter your skill(1, 2, 3). To exit enter 4");
+			ch = sc.nextInt();
+			if (ch == 1) {
+				System.out.println("Welcome Java Coder");
+			} else if (ch == 2) {
+				System.out.println("Welcome JEE Coder");
+			} else if (ch == 3) {
+				System.out.println("Welcome HBM Coder");
+			} else if (ch == 4) {
+				break;
+			} else {
+				System.out.println("Bad Choice, Enter Again");
+			}
+		}
+
+	}
+
+}
