@@ -1,0 +1,25 @@
+
+public class ExcepEg3 {
+
+	public static void main(String[] args) {
+		int res=0;
+		res=10; 
+		try{
+			int z=10/2;  //Case 1: No Exception happened
+			//int z=10/0; //Case 2: Exception is handled
+			//int z=Integer.parseInt("23a"); //case 3: exception is not handled 
+//			res = 0;
+		}
+		catch(ArithmeticException e){
+			System.out.println(e);
+//			res = 0;
+		}
+		finally{
+			res=0;
+			System.out.println("\nIn finallly : resource Should be 0 but is: "+ res);
+		}
+		System.out.println("resource Should be 0 but is: "+ res);
+
+	}
+
+}
