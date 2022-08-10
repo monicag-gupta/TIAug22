@@ -1,3 +1,62 @@
+class AgeException extends Exception{
+	public AgeException(){
+		super("Invalid Age Exception");
+	}
+	public AgeException(String m){
+		super(m);
+	}
+}
+class Emp{
+	int age;
+	void input() throws AgeException{
+		System.out.println("Enter age: ");
+		age=new java.util.Scanner(System.in).nextInt();
+		if(age<0 || age >100){
+			throw new AgeException("Invalid Age Entered");
+		}
+	}
+	void print(){
+		System.out.println("Age of Emp : " + age);
+	}
+}
+
+public class UserExcepEg {
+
+	public static void main(String[] args) {
+		Emp e1=new Emp();
+		try {
+			e1.input();
+		} catch (AgeException e) {
+			e.printStackTrace();
+		}
+		e1.print();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class AgeException extends RuntimeException{
 	public AgeException(){
 		super("Invalid Age Exception");
