@@ -1,3 +1,30 @@
+Exercise:
+Menu driven Program: (Add Employee, Display List, Exit)
+Create a class called Employee that asks the user to input the name and the age of an employee. Prepare a list of employees with the following criteria: 
+Raise a custom defined exception when the user enters an employee name that has already been entered in the array/Collection
+of employees and raise another exception if the age is negative or less than 18 or greater than 60. If there is any occurrence of any other exception, 
+throw those also as user defined exceptions.
+We need two custom defined exceptions:
+NameException, AgeException
+If age <18: “Children are not allowed as Employees”
+If Age<0 : “Ghosts are not allowed as Employees”
+If age>60: “Seniors are not allowed as Employees”
+If age> 100 : “Purvaj are not allowed as Employees”
+If name is duplicate: “Duplicate names are not allowed as Employees”
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import java.util.*;
 
 public class MenuDrivenArchitecture {
