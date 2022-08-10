@@ -1,0 +1,38 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExcepEg5 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] a=new int[10];
+		while (true) {
+			try {
+				System.out.println("To discontinue, put -10 in the nummerator");
+				System.out.println("Enter a number (numerator): ");
+				int x = Integer.parseInt(sc.nextLine());
+				if (x == -10)
+					break;
+				System.out.println("Enter 2nd number (denominator): ");
+				int y = Integer.parseInt(sc.nextLine());
+
+				a[11] = x / y;
+				System.out.println("Result : " + a[11]);
+			} catch (ArithmeticException e) {
+				System.out.println(e);
+			} catch (InputMismatchException e) {
+				System.out.println(e);
+				//				break;
+			}
+			catch (NumberFormatException e) {
+				System.out.println(e);
+			}
+			catch (Exception e) {
+				System.out.println(e);
+			}
+			
+		}
+
+	}
+
+}
