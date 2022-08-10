@@ -1,4 +1,95 @@
 import java.io.*;
+class P2
+{
+	void fn() throws ArithmeticException {
+		System.out.println("Parent with Runtime exception declared");
+	}
+}
+class C2 extends P2{
+	void fn() { //parent with Runtime exception, child also no exception
+		System.out.println("Parent with Runtime exception declared "
+				+ "plus child no exception declared");
+	}
+}
+class D2 extends P2{
+	void fn() throws NumberFormatException { //parent with runtime exception, child has Runtime exception
+		System.out.println("Parent with Runtime exception declared "
+				+ "plus child has Runtime exception declared");
+	}
+}
+//class E2 extends P2{
+//	//Not allowed
+//	void fn() throws IOException { //parent with no exception, child has Compile time exception
+//		System.out.println("Parent with Runtime exception declared "
+//				+ "plus child has Compile exception declared");
+//	}
+//}
+//class F2 extends P2 {
+//	// Not allowed
+//	void fn() throws Exception { // parent with no exception, child has Compile
+//									// time exception
+//		System.out.println("Parent with Runtime exception declared "
+//				+ "plus child has parent exception declared");
+//	}
+//}
+
+
+public class ExcepEg8 {
+
+	public static void main(String[] args) {
+		P2 p1=new P2();
+		p1.fn();
+		P2 p2=new C2();
+		p2.fn();
+		P2 p3=new D2();
+		p3.fn();
+		
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*;
 class P
 {
 	void fn() {
