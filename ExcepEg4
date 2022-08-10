@@ -1,0 +1,23 @@
+//difference between a checked excep, unchecked excep
+import java.io.*;
+import java.util.*;
+public class ExcepEg4 {
+	static void fn() throws IOException{
+		System.out.println("Age pl: ");
+		int age=new Scanner(System.in).nextInt();
+		if(age<0){
+			throw new IOException("Ghost : run away from my project");
+		}
+	}
+
+	public static void main(String[] args) {
+		//throw new ArithmeticException(); //is neglected by the compiler, only caught by JVM
+		//throw new IOException(); //is not neglected by the compiler, caught by Javac itself
+		try {
+			fn();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+}
