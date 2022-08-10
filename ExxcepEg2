@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class ExxcepEg2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		while (true) {
+			try {
+				System.out.println("To discontinue, put -10 in the nummerator");
+				System.out.println("Enter a number (numerator): ");
+				int x = sc.nextInt();
+				if (x == -10)
+					break;
+				System.out.println("Enter 2nd number (denominator): ");
+				int y = sc.nextInt();
+
+				int z = x / y;
+				System.out.println("Result : " + z);
+			} catch (ArithmeticException e) {
+				System.out.println(e);
+			} catch (InputMismatchException e) {
+				System.out.println(e);
+				break;
+			}
+		}
+
+	}
+
+}
