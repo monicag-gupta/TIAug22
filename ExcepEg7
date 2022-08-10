@@ -1,3 +1,96 @@
+import java.io.IOException;
+class P4
+{
+	void fn() throws Exception {
+		System.out.println("Parent with Parent Exception declared");
+	}
+}
+class C4 extends P4{
+	void fn() { //parent with Compile exception, child also no exception
+		System.out.println("Parent with Parent Exception declared "
+				+ "plus child no exception declared");
+	}
+}
+class D4 extends P4{
+	void fn() throws NumberFormatException { //parent with runtime exception, child has Runtime exception
+		System.out.println("Parent with Parent Exception declared "
+				+ "plus child has Runtime exception declared");
+	}
+}
+class E4 extends P4{
+	void fn() throws IOException { 
+		System.out.println("Parent with Parent Exception declared "
+				+ "plus child has same Compile exception declared");
+	}
+}
+class F4 extends P4{
+	void fn() throws java.sql.SQLException { 
+		System.out.println("Parent with Parent Exception declared "
+				+ "plus child has different Compile exception declared");
+	}
+}
+class G4 extends P4 {
+	
+	void fn() throws Exception { 
+		System.out.println("Parent with Parent Exception declared "
+				+ "plus child has parent exception declared");
+	}
+}
+
+
+public class ExcepEg10 {
+
+	public static void main(String[] args) throws Exception {
+		P4 p1=new P4();
+		p1.fn();
+		P4 p2=new C4();
+		p2.fn();
+		P4 p3=new D4();
+		p3.fn();
+		P4 p4=new E4();
+		p4.fn();
+		P4 p5=new F4();
+		p5.fn();
+		P4 p6=new G4();
+		p6.fn();
+		
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import java.io.*;
 class P3
 {
