@@ -1,4 +1,22 @@
 //difference between a checked excep, unchecked excep
+//Runtime Exception:
+//Not compulsorily handled by coders
+//Not justified by Compiler
+//If try..catch handles it, we get the exception not closing the program abruptly at runtime
+//If throws is used in the calling function, still the exception will cause the program abruptly killed. 
+//Throws usage is not significant.
+
+//Compile time exception:
+//	If thrown from a function, needs compulsorily:
+//		Either throws statement in the function definition
+//		Or try..catch handlers
+//	If try..catch handles it, we get the exception not closing the program abruptly at runtime
+//	If throws is used in the calling function, still the exception will cause the program abruptly killed. 
+//	If throws keyword is used in a called function, the caller function must handle the exception or throws is added to function definition.
+
+
+
+
 import java.io.*;
 import java.util.*;
 public class ExcepEg4 {
