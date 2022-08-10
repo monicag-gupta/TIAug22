@@ -8,11 +8,11 @@ public class ExxcepEg2 {
 			try {
 				System.out.println("To discontinue, put -10 in the nummerator");
 				System.out.println("Enter a number (numerator): ");
-				int x = sc.nextInt();
+				int x = Integer.parseInt(sc.nextLine());
 				if (x == -10)
 					break;
 				System.out.println("Enter 2nd number (denominator): ");
-				int y = sc.nextInt();
+				int y = Integer.parseInt(sc.nextLine());
 
 				int z = x / y;
 				System.out.println("Result : " + z);
@@ -20,8 +20,12 @@ public class ExxcepEg2 {
 				System.out.println(e);
 			} catch (InputMismatchException e) {
 				System.out.println(e);
-				break;
+				//				break;
 			}
+			catch (NumberFormatException e) {
+				System.out.println(e);
+			}
+			
 		}
 
 	}
