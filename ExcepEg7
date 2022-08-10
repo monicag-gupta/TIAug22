@@ -1,4 +1,93 @@
 import java.io.*;
+class P3
+{
+	void fn() throws IOException {
+		System.out.println("Parent with Compile exception declared");
+	}
+}
+class C3 extends P3{
+	void fn() { //parent with Compile exception, child also no exception
+		System.out.println("Parent with Compile exception declared "
+				+ "plus child no exception declared");
+	}
+}
+class D3 extends P3{
+	void fn() throws NumberFormatException { //parent with runtime exception, child has Runtime exception
+		System.out.println("Parent with Compile exception declared "
+				+ "plus child has Runtime exception declared");
+	}
+}
+class E3 extends P3{
+	void fn() throws IOException { //parent with Compile exception, child has Compile time exception
+		System.out.println("Parent with Compile exception declared "
+				+ "plus child has same Compile exception declared");
+	}
+}
+//class E32 extends P3{
+//	void fn() throws java.sql.SQLException { //parent with Compile exception, child has Compile time exception
+//		System.out.println("Parent with Compile exception declared "
+//				+ "plus child has different Compile exception declared");
+//	}
+//}
+//class F3 extends P3 {
+//	// Not allowed
+//	void fn() throws Exception { // parent with Compile exception, child has Parent
+//									// time exception
+//		System.out.println("Parent with Compile exception declared "
+//				+ "plus child has parent exception declared");
+//	}
+//}
+
+
+public class ExcepEg9 {
+
+	public static void main(String[] args) throws IOException {
+		P3 p1=new P3();
+		p1.fn();
+		P3 p2=new C3();
+		p2.fn();
+		P3 p3=new D3();
+		p3.fn();
+		
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*;
 class P2
 {
 	void fn() throws ArithmeticException {
