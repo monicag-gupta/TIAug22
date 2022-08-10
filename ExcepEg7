@@ -1,0 +1,42 @@
+import java.io.*;
+class P
+{
+	void fn() {
+		System.out.println("Parent with no exception declared");
+	}
+}
+class C extends P{
+	void fn() { //parent with no exception, child also no exception
+		System.out.println("Parent with no exception declared "
+				+ "plus child also no exception declared");
+	}
+}
+class D extends P{
+	void fn() throws ArithmeticException { //parent with no exception, child has Runtime exception
+		System.out.println("Parent with no exception declared "
+				+ "plus child has Runtime exception declared");
+	}
+}
+//class E extends P{
+//	//Not allowed
+//	void fn() throws IOException { //parent with no exception, child has Compile time exception
+//		System.out.println("Parent with no exception declared "
+//				+ "plus child has Compile exception declared");
+//	}
+//}
+
+
+public class ExcepEg7 {
+
+	public static void main(String[] args) {
+		P p1=new P();
+		p1.fn();
+		P p2=new C();
+		p2.fn();
+		P p3=new D();
+		p3.fn();
+		
+
+	}
+
+}
