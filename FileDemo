@@ -1,0 +1,25 @@
+import java.io.File;
+public class FileDemo {
+   public static void main(String[] args) {
+      File f = null;
+      //String s = "C:\\Monica\\test.txt";
+      String s = "/Monica/test.txt";
+      try {
+             // create new file
+            f = new File(s);
+            // true if the file is executable
+            boolean bool = f.canExecute();
+            // find the absolute path
+            String a = f.getAbsolutePath(); 
+            // prints absolute path
+            System.out.print(a);
+            System.out.println(" is executable: "+ bool);
+            System.out.println("It is readable: " + f.canRead());
+            System.out.println("It is Writeable: " + f.canWrite());
+            System.out.println("IS is a : " + (f.isFile()?"File":"Directory"));
+      } catch (Exception e) {
+         // if any I/O error occurs
+         e.printStackTrace();
+      }
+   }
+}
