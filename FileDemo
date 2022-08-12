@@ -1,3 +1,37 @@
+import java.io.*;
+
+public class FileCopy {
+	public static void main(String[] args) {
+		//Command line arguments: Monica/test.txt /Monica/test-copy.txt
+		if (args.length != 2)
+			System.err.println("Usage: java FileCopy <source file> <destination>");
+		else {
+			try {
+				FileInputStream from = new FileInputStream(args[0]);
+				FileOutputStream to = new FileOutputStream(args[1]);
+				byte[] buffer = new byte[4096];
+				int bytes_read;
+				while ((bytes_read = from.read(buffer)) != -1)
+					to.write(buffer, 0, bytes_read);
+				System.out.println("Copy Done!");
+				from.close();
+				to.close();
+			} catch (Exception e) {
+				System.err.println(e.getMessage());
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
 //File overwrite
 import java.io.*;
 public class FileReadWrite {
