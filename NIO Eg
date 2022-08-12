@@ -3,32 +3,39 @@ import java.nio.file.*;
 public class PathFileNIOCreateDir {
 
 	public static void main(String[] args) throws java.io.IOException {
+		//Step1:
 		// Path dirPath =Paths.get("/Monica/subDir");
 		// if(!Files.exists(dirPath))
 		// Files.createDirectories(dirPath);
-		// System.out.println("Done");
+		// System.out.println("Done1");
 
-		// Path sourcePath = Paths.get("/Monica/test.txt");
+		//Step 2: 
+		//Path sourcePath = Paths.get("/Monica/test.txt");
 		// Path destinationPath = Paths.get("/Monica/test2.txt");
 		// Files.copy(sourcePath, destinationPath);
-		// System.out.println("Done");
+		// System.out.println("Done2");
 
+		//Step3:
 //		Path sourcePath = Paths.get("/Monica/test.txt");
 //		Path destinationPath = Paths.get("/Monica/test-copy.txt");
 //		Files.copy(sourcePath, destinationPath,
 //					StandardCopyOption.REPLACE_EXISTING);
-//		System.out.println("Done");
+//		System.out.println("Done3");
 
 		
-		
+//		Step 4: 
+//		Path sourcePath = Paths.get("/Monica/test.txt");
+//		Path destinationPath = Paths.get("/Monica/testNew.txt");		
 //		Files.move(sourcePath, destinationPath,
 //		            StandardCopyOption.REPLACE_EXISTING);
+//		System.out.println("Done4");
 		
 		
 		            
 		            
 	}
 }
+
 
 
 
