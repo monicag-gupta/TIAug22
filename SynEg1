@@ -1,0 +1,32 @@
+package threading;
+import java.util.*;
+class MathOp{
+	synchronized void sum(){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter x for Add:");
+		int a=sc.nextInt();
+		System.out.println("Enter y for Add:");
+		int b=sc.nextInt();
+		System.out.println("Sum : " + (a+b));
+	}
+	synchronized void product(){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter a for Product:");
+		int a=sc.nextInt();
+		System.out.println("Enter b for Product:");
+		int b=sc.nextInt();
+		System.out.println("Product : " + (a*b));
+	}
+}
+public class MatEx {
+
+	public static void main(String[] args) {
+		MathOp o=new MathOp();
+		Thread t1=new Thread(o :: sum);
+		Thread t2=new Thread(o :: product);
+		t1.start();
+		t2.start();
+
+	}
+
+}
