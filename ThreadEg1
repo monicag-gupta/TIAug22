@@ -1,0 +1,44 @@
+package threading;
+
+//class Th implements Runnable {
+//	// String n;
+//	// Th(){n="MyTh";}
+//	// Th(String n){this.n=n;}
+//	public void run() {
+//		for (int i = 0; i < 10; i++) {
+//			System.out.println(Thread.currentThread().getName()
+//					+ " Iteration: " + i);
+//		}
+//	}
+//}
+
+public class ThreadEg1 {
+
+	public static void main(String[] args) {
+		// using anonymous class
+		Runnable th1 = new Runnable() {
+			public void run() {
+				for (int i = 0; i < 10; i++) {
+					System.out.println(Thread.currentThread().getName()
+							+ " Iteration: " + i);
+				}
+			}
+		};
+		// Lambda
+		Runnable th2 = () -> {
+			for (int i = 0; i < 10; i++) {
+				System.out.println(Thread.currentThread().getName()
+						+ " Iteration: " + i);
+			}
+		};
+
+//		Th th1=new Th("t1");
+//		Th th2=new Th("t2");
+		Thread t1 = new Thread(th1);
+		Thread t2 = new Thread(th2);
+		t1.start();
+		t2.start();
+
+	}
+
+}
