@@ -34,8 +34,8 @@ public class ThreadEg1 {
 
 //		Th th1=new Th("t1");
 //		Th th2=new Th("t2");
-		Thread t1 = new Thread(th1);
-		Thread t2 = new Thread(th2);
+		Thread t1 = new Thread(th1,"T1");
+		Thread t2 = new Thread(th2, "T2");
 		t1.start();
 		t2.start();
 
