@@ -21,20 +21,41 @@ package concurrentPkg;
 //	}
 //}
 
-import java.util.Timer;
-import java.util.TimerTask;
+//import java.util.Timer;
+//import java.util.TimerTask;
+//
+//public class Task1 {
+//	public static void main(String[] args) {
+//		TimerTask task = new TimerTask() {
+//			public void run() { // task to run goes here
+//				System.out.println("Hello !!!");
+//			}
+//		};
+//		Timer timer = new Timer();
+//		long delay = 0;
+//		long intevalPeriod = 1 * 1000;
+//		// schedules the task to be run in an interval
+//		timer.scheduleAtFixedRate(task, delay, intevalPeriod);
+//	} // end of main
+//}
+
+
+
+
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Task1 {
 	public static void main(String[] args) {
-		TimerTask task = new TimerTask() {
+		Runnable runnable = new Runnable() {
 			public void run() { // task to run goes here
-				System.out.println("Hello !!!");
+				System.out.println("Hello !!");
 			}
 		};
-		Timer timer = new Timer();
-		long delay = 0;
-		long intevalPeriod = 1 * 1000;
-		// schedules the task to be run in an interval
-		timer.scheduleAtFixedRate(task, delay, intevalPeriod);
-	} // end of main
+		ScheduledExecutorService service = Executors
+				.newSingleThreadScheduledExecutor();
+		service.scheduleAtFixedRate(runnable, 0, 1, TimeUnit.SECONDS);
+	}
 }
