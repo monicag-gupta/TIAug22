@@ -1,22 +1,40 @@
 package concurrentPkg;
 
+//public class Task1 {
+//	public static void main(String[] args) {
+//		final long timeInterval = 1000; // run in a second
+//		Runnable runnable = new Runnable() {
+//			public void run() {
+//				while (true) {// ------- code for task to run
+//					System.out.println("Hello !!");
+//					// ------- ends here
+//					try {
+//						Thread.sleep(timeInterval);
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//		};
+//		Thread thread = new Thread(runnable);
+//		thread.start();
+//	}
+//}
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Task1 {
 	public static void main(String[] args) {
-		final long timeInterval = 1000; // run in a second
-		Runnable runnable = new Runnable() {
-			public void run() {
-				while (true) {// ------- code for task to run
-					System.out.println("Hello !!");
-					// ------- ends here
-					try {
-						Thread.sleep(timeInterval);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
+		TimerTask task = new TimerTask() {
+			public void run() { // task to run goes here
+				System.out.println("Hello !!!");
 			}
 		};
-		Thread thread = new Thread(runnable);
-		thread.start();
-	}
+		Timer timer = new Timer();
+		long delay = 0;
+		long intevalPeriod = 1 * 1000;
+		// schedules the task to be run in an interval
+		timer.scheduleAtFixedRate(task, delay, intevalPeriod);
+	} // end of main
 }
