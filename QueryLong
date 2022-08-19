@@ -1,0 +1,27 @@
+select min(noOfProSold) as mn, 
+(select productName from 
+(select productName, productCode, 
+(select sum(quantityOrdered*priceEach) from orderdetails where  productCode=p.productCode) as noOfProSold2 
+from products p) as T2 
+where noOfProSold2 = 
+(select min(noOfProSold3) from
+(select productName, productCode, 
+(select sum(quantityOrdered*priceEach) from orderdetails where  productCode=p.productCode) as noOfProSold3 
+from products p) as T3)
+) as PName_forMin,
+ max(noOfProSold), 
+ (select productName from 
+(select productName, productCode, 
+(select sum(quantityOrdered*priceEach) from orderdetails where  productCode=p.productCode) as noOfProSold2 
+from products p) as T2 
+where noOfProSold2 = 
+(select max(noOfProSold3) from
+(select productName, productCode, 
+(select sum(quantityOrdered*priceEach) from orderdetails where  productCode=p.productCode) as noOfProSold3 
+from products p) as T3)
+) as PName_forMax,
+ avg(noOfProSold)
+from
+(select productName, productCode, 
+(select sum(quantityOrdered*priceEach) from orderdetails where  productCode=p.productCode) as noOfProSold 
+from products p) as T;
