@@ -1,0 +1,236 @@
+package ORM;
+
+public class Emp {
+	int id;
+	String name;
+	int age;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public String toString() {
+		return "\nEmp [id=" + id + ", name=" + name + ", age=" + age + "]";
+	}
+	public Emp(int id, String name, int age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+	public Emp(){}
+
+}
+
+
+package ORM;
+import java.sql.*;
+import java.util.*;
+
+public class EmpDAO {
+	Connection con;
+	public EmpDAO(){
+		con=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/javadb", "root", "password");
+			// here javadb is database name, root is username and password
+		}
+		catch(Exception e)
+		{}
+	}
+	public int save(Emp e)
+	{
+		Statement stmt;
+		int s=0;
+		try {
+			stmt = con.createStatement();
+			s = stmt.executeUpdate
+					("insert into emp values("+e.getId() + ",'"+e.getName() + "', "+e.getAge() + ")");
+		} catch (SQLException e1) {
+		}
+		return s;
+	}
+	public int update(Emp e)
+	{
+		Statement stmt;
+		int s=0;
+		try {
+			stmt = con.createStatement();
+			s = stmt.executeUpdate
+					("Update emp set age ="+e.getAge() + ", name = '"+e.getName() + "' where id="+e.getId());
+		} catch (SQLException e1) {
+		}
+		return s;
+	}
+	public int delete(Emp e)
+	{
+		Statement stmt;
+		int s=0;
+		try {
+			stmt = con.createStatement();
+			s = stmt.executeUpdate
+					("delete from emp where id="+e.getId());
+		} catch (SQLException e1) {
+		}
+		return s;
+	}
+	public List<Emp> listEmp(){
+		List<Emp> emps=new ArrayList<>();
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from emp");
+			while (rs.next())
+				emps.add(new Emp(rs.getInt(1),rs.getString(2),rs.getInt(3)));
+		} catch (Exception e) {}
+		
+		return emps;
+	}
+	public void finalise(){
+		try {
+			con.close();
+		} catch (SQLException e) {}
+	}
+	
+
+}
+
+
+
+
+
+
+package ORM;
+
+public class Main {
+
+	public static void main(String[] args) {
+			EmpDAO edao=new EmpDAO();
+			Emp e=new Emp(105,"Hermoine",22);
+			System.out.println(edao.save(e)+" records inserted");
+			java.util.List<Emp> emps=edao.listEmp();
+			System.out.println(emps);
+
+	}
+
+}
+
+
+
+
+
+
+
+
+package ORM;
+import java.sql.*;
+import java.util.*;
+
+public class EmpDAO {
+	Connection con;
+	public EmpDAO(String driver, String URL, String user, String pass){
+		con=null;
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(
+					URL, user, pass);
+			// here javadb is database name, root is username and password
+		}
+		catch(Exception e)
+		{}
+	}
+	public int save(Emp e)
+	{
+		Statement stmt;
+		int s=0;
+		try {
+			stmt = con.createStatement();
+			s = stmt.executeUpdate
+					("insert into emp values("+e.getId() + ",'"+e.getName() + "', "+e.getAge() + ")");
+		} catch (SQLException e1) {
+		}
+		return s;
+	}
+	public int update(Emp e)
+	{
+		Statement stmt;
+		int s=0;
+		try {
+			stmt = con.createStatement();
+			s = stmt.executeUpdate
+					("Update emp set age ="+e.getAge() + ", name = '"+e.getName() + "' where id="+e.getId());
+		} catch (SQLException e1) {
+		}
+		return s;
+	}
+	public int delete(Emp e)
+	{
+		Statement stmt;
+		int s=0;
+		try {
+			stmt = con.createStatement();
+			s = stmt.executeUpdate
+					("delete from emp where id="+e.getId());
+		} catch (SQLException e1) {
+		}
+		return s;
+	}
+	public List<Emp> listEmp(){
+		List<Emp> emps=new ArrayList<>();
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from emp");
+			while (rs.next())
+				emps.add(new Emp(rs.getInt(1),rs.getString(2),rs.getInt(3)));
+		} catch (Exception e) {}
+		
+		return emps;
+	}
+	public void finalise(){
+		try {
+			con.close();
+		} catch (SQLException e) {}
+	}
+	
+
+}
+
+
+
+
+
+
+package ORM;
+
+public class Main {
+
+	public static void main(String[] args) {
+			EmpDAO edao=new EmpDAO("com.mysql.jdbc.Driver","jdbc:mysql://localhost:3306/javadb", "root", "password");
+			Emp e=new Emp(104,"Harry Potter",24);
+			System.out.println(edao.save(e)+" records inserted");
+			
+			java.util.List<Emp> emps=edao.listEmp();
+			System.out.println(emps);
+			e.setAge(26);
+			System.out.println(edao.update(e)+" records updated");
+			emps=edao.listEmp();
+			System.out.println(emps);
+
+	}
+
+}
