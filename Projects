@@ -1,0 +1,67 @@
+Movie Review Application
+Introduction:
+A movie review application allows users to review and rate movies. The movies could be an
+existing movie in the application or they may add a new movie. The application also allows them
+to browse and search for movies so that they view the reviews of the same.
+Artifacts:
+● Movie - A Movie consists of the following informations
+○ Title - Upto 100 Characters
+○ Summary - Upto 500 Characters
+○ Cast - List of Names each upto 50 Characters
+○ Genre - List of Tags each upto 20 Characters.
+● Review - A textual review of a movie, upto 500 Characters.
+● Rating - A numbered rating between 1-5, both inclusive.
+Functional Requirements:
+1. Any person can add a new movie entry.
+2. Any person can edit an existing movie entry.
+3. Any person can add a review to a movie.
+4. Any person can rate a movie.
+5. Any person can view a list of movies from a genre.
+6. Any person can view a list of top 10 movies overall or from a genre.
+7. Any person can search for a movie by name or/and by genre.
+8. Any person can view details of a movie, see its summary, cast,genre, reviews.
+
+
+Java-JDBC-MySQL
+A movie review application allows users to review and rate movies. 
+The movies could be an existing movie in the application or they may add a new movie. 
+The application also allows them to browse and search for movies so that they view the reviews of the same.
+
+Menu driven
+Database (MySQL)
+
+
+Artifacts:
+● Movie - A Movie consists of the following information
+○ Title – Up to 100 Characters
+○ Summary – Up to 500 Characters
+○ Cast - List of Names each upto 50 Characters
+○ Genre - List of Tags each upto 20 Characters.
+● Review - A textual review of a movie, up to 500 Characters.
+Rating - A numbered rating between 1-5, both inclusive.
+● User – Registered users for giving review
+○ ID
+○ Name
+○ Email-id
+
+
+
+Functional Requirements:
+1. User: Any person can add a new movie entry.
+2. User: Any person can edit an existing movie entry.
+3. User: Any person can add a review to a movie.
+4. User: Any person can rate a movie.
+5. Any person can view a list of movies from a genre.
+6. Any person can view a list of top 10 movies overall or from a genre.
+7. Any person can search for a movie by name or/and by genre.
+8. Any person can view details of a movie, see its summary, cast, genre, reviews.
+
+
+
+Table Reference:
+
+Create table movie (movie_id INT Auto_increment NOT NULL Primary Key, movie_name varchar(100) Not Null,Summary varchar(500),cast  varchar(200),Genre varchar(200),Average_rating float,user_id int, FOREIGN KEY (user_id) REFERENCES users(user_id) );
+Create table review (review_id INT Auto_increment NOT NULL Primary Key, movie_id  int not Null,Review varchar(500),user_id int, FOREIGN KEY (user_id) REFERENCES users(user_id) )
+Create table rating (rating_id INT Auto_increment NOT NULL Primary Key, movie_id int not Null,Rating int ,user_id int, FOREIGN KEY (user_id) REFERENCES users(user_id))
+Create table users(user_id int Auto_increment NOT NULL Primary Key, user_name varchar(100) Not Null,email_id varchar(100) Not Null Unique )
+
