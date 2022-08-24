@@ -115,3 +115,55 @@ public class LSPEg {
 
 
 
+
+
+
+
+package SOLID;
+interface NotInISP{
+	 double Celsius2Farenheit(double Celsius);
+	 double Farenheit2Celsius(double Farenheit);
+	 int m2Km(int m);
+	 int Km2m(int km);
+}
+interface InISPTemp{
+	 double Celsius2Farenheit(double Celsius);
+	 double Farenheit2Celsius(double Farenheit);
+}
+interface InISPDistance{
+	 int m2Km(int m);
+	 int Km2m(int km);
+}
+
+class InISPImpl implements 	InISPTemp{
+	public double Celsius2Farenheit(double Celsius){
+		return ((Celsius * (double)9/5) + (double)32);
+	}
+	 public double Farenheit2Celsius(double Farenheit){
+		 return (((Farenheit - (double) 32)* (double)5)/(double)9);
+	 }
+//	 public int m2Km(int m){return 0;}
+//	 public int Km2m(int km){return 0;}
+}
+
+public class ISPEg {
+
+	public static void main(String[] args) {
+		
+		InISPImpl tempConv=new InISPImpl();
+		System.out.println("Temp in Farenheit: " + tempConv.Celsius2Farenheit(32));
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
