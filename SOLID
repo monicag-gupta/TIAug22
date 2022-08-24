@@ -119,6 +119,44 @@ public class LSPEg {
 
 
 
+
+
+
+package SOLID;
+interface HotDrink{
+	void prepare();
+}
+class Restaurant{
+	HotDrink h;
+	Restaurant(HotDrink h){
+		this.h=h;
+	}
+	public void serve(){
+		h.prepare();
+	}
+}
+class Tea implements HotDrink{
+	public void prepare(){
+		System.out.println("Hot Tea is prepared!");
+	}
+}
+class Coffee implements HotDrink{
+	public void prepare(){
+		System.out.println("Hot Coffee is prepared!");
+	}
+}
+public class DIPEg {
+	public static void main(String[] args) {
+		Restaurant r1=new Restaurant(new Tea());
+		r1.serve();
+		Restaurant r2=new Restaurant(new Coffee());
+		r2.serve();
+	}
+}
+
+
+
+
 package SOLID;
 interface NotInISP{
 	 double Celsius2Farenheit(double Celsius);
