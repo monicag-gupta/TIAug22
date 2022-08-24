@@ -1,0 +1,117 @@
+package SOLID;
+class NotInSRP{
+	void add(int x, int y){
+		System.out.println(x+y);
+	}
+	void mul(int x, int y){
+		System.out.println(x*y);
+	}
+}
+class InSRP{
+	void add(int x, int y){
+		System.out.println(x+y);
+	}
+}
+public class SRPEg {
+	public static void main(String[] args) {
+		NotInSRP n=new NotInSRP();
+		n.add(5, 6);
+		n.mul(7, 8);
+		InSRP m=new InSRP();
+		m.add(5, 6);
+	}
+}
+
+
+
+
+
+
+
+package SOLID;
+class InOCP{
+	public void fn(){
+		System.out.println("InOCP : fn()");
+	}
+}
+class Ch extends InOCP{
+	public void fn(){
+		System.out.println("Ch : InOCP : fn()");
+	}
+}
+public class OCPEg {
+	public static void main(String[] args) {
+		InOCP i=new InOCP();
+		i.fn();
+		i=new Ch();
+		i.fn();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package SOLID;
+import java.util.*;
+class Bird{
+	String nm;
+	void eat(){
+		System.out.println("A Bird named: " + nm + " is eating");
+	}
+//	void fly(){
+//		System.out.println("A Bird named: " + nm + " is flying");
+//	}
+}
+class FlyingBird extends Bird{
+	FlyingBird(String n){
+		nm=n;
+	}
+	void fly(){
+		System.out.println("A Bird named: " + nm + " is flying");
+	}
+}
+class NonFlyingBird extends Bird{
+	NonFlyingBird(String n){
+		nm=n;
+	}
+//	void fly(){
+//		throw new ArithmeticException("Sorry, We cannot fly");
+//	}
+}
+
+public class LSPEg {
+
+	public static void main(String[] args) {
+		List<Bird> l=Arrays.asList(
+				new FlyingBird("Crow"), new NonFlyingBird("Ostrich"),new FlyingBird("Parrot"));
+		fn(l);
+	}
+	static void fn(List<Bird> l){
+		for(Bird b : l){
+			b.eat();
+			if(b instanceof FlyingBird){
+				FlyingBird f=(FlyingBird)b;
+				f.fly();			
+			}
+			
+		}
+	}
+
+}
+
+
+
+
