@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int ch, age;
+		while(true){
+			System.out.println("Choose from: \n1. enter booth \n2. Exit");
+			ch=sc.nextInt();
+			
+			if(ch==2){
+				break;
+			}
+			else if(ch==1){
+				System.out.println("Enter your age:");
+				age=sc.nextInt();
+				assert age>=18 : "Invalid Age pl go back home";
+				System.out.println("Pl enter to vote!");
+			}
+			else{
+				System.out.println("Incorrect choice, try again..");
+			}
+			
+		}
+
+	}
+
+}
